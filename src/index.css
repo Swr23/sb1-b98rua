@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-primary dark:to-dark-secondary text-gray-900 dark:text-dark-text transition-colors duration-300;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-dark-primary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-dark-accent rounded-full hover:bg-gray-400 dark:hover:bg-dark-highlight transition-colors;
+  }
+}
+
+@layer components {
+  .card {
+    @apply backdrop-blur-xl bg-white/80 dark:bg-dark-secondary/80 rounded-xl shadow-lg border border-white/20 dark:border-dark-border/20 transition-all duration-300;
+  }
+
+  .button-primary {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .input-field {
+    @apply bg-white dark:bg-dark-accent border border-gray-200 dark:border-dark-border rounded-lg px-4 py-2 text-gray-900 dark:text-dark-text placeholder-gray-400 dark:placeholder-dark-muted focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 transition-all duration-300;
+  }
+
+  .nav-item {
+    @apply flex items-center px-4 py-2 text-gray-600 dark:text-dark-muted rounded-lg hover:bg-gray-100 dark:hover:bg-dark-accent transition-all duration-300;
+  }
+
+  .nav-item.active {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-lg;
+  }
+}
+
+/* Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+/* Glass Effect */
+.glass {
+  @apply backdrop-blur-lg bg-white/5 dark:bg-dark-secondary/5 border border-white/10 dark:border-dark-border/10;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
